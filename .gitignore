@@ -1,3 +1,5 @@
 env
+venv
+.idea
 CQM_Codes
 CQM_Specs

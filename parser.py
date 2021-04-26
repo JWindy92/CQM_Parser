@@ -14,7 +14,7 @@ args = parser.parse_args()
 
 cqm_section = 'Diagnostic Study'
 excel_file = args.source
-output_dir = args.o + "CQM_Codes/"
+output_dir = args.o + "Codesets/"
 clean_output_dir = args.clean
 
 valid_measures = ["CMS2v10", "CMS69v9", "CMS75v9", "CMS117v9", "CMS136v10", "CMS138v9", "CMS146v9", "CMS147v10", "CMS153v9", "CMS154v9", "CMS155v9"]
