@@ -7,7 +7,8 @@ import argparse
 from pprint import pprint
 
 parser = argparse.ArgumentParser(description="Generate CSV files containing valid codes for use in CQM extractions")
-parser.add_argument('--source', help="The file to extract codes from")
+required_args = parser.add_argument_group("required arguments")
+required_args.add_argument('--source', help="The file to extract codes from")
 parser.add_argument('--clean', help="Purges the output directory before writing new files", action="store_true")
 parser.add_argument('-o', help="Location to write the output files", default='./')
 args = parser.parse_args()
