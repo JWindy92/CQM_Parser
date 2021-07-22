@@ -51,14 +51,17 @@ def parse_file(data):
 def get_codes(data):
     code_dict = {}
     code_types = data['Code System'].unique()
+    all_codes = []
     for i in code_types:
         codes = data.loc[(data['Code System'] == i), ['Code','CMS ID']]
         code_dict[i] = []
         for j in codes.values:
             if j[1] in valid_measures:
                 code_dict[i].append(j[0])
+                all_codes.append(j[0])
         if len(code_dict[i]) <= 0:
             del code_dict[i]
+    code_dict['COMPLETE'] = all_codes
     return code_dict
 
 def write_code_csvs(data, location="./"):
@@ -79,7 +82,6 @@ def write_code_csvs(data, location="./"):
             for code in data[i]:
                 writer.writerow({"code": code})
 
-        
 
 if __name__ == "__main__":
     purge_output_dir(clean_output_dir)
